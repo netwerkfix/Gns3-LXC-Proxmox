@@ -3,7 +3,7 @@ Description=Damien-Coopmans-Installer
 
 [Service]
 #ExecStartPre=
-ExecStart=/root/remote-install.sh
+ExecStart=/root/gns-installer/
 SyslogIdentifier=Diskutilization
 #ExecStop=
 
