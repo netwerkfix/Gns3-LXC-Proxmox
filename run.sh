@@ -20,7 +20,7 @@ set -v
 ##########################################################
 
 cd /etc/systemd/system/
-wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/378e4aa4ddcddf12c6cf1829003ccee08b5d8a5c/installer.service
+wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/main/installer.service
 chmod 755 installer.service
 mkdir -p /root/gns-installer
 cd /root/gns-installer
