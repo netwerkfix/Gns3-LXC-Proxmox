@@ -11,27 +11,48 @@ if [ `id -u` -ne 0 ]; then
 fi
 
 set -v
-
+sleep 2 ; clear
 ##########################################################
 #                    Installing GNS3                     #
 #                                                        #
 #         download fist tools than installation          #
 #                                                        #
 ##########################################################
+sleep 3 ; clear
 
-cd /etc/systemd/system/
-wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/main/installer.service
-chmod 755 installer.service
-mkdir -p /root/gns-installer
-cd /root/gns-installer
-wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/main/remote-install.sh
-chmod 755 remote-install.sh
-systemctl enable installer.service
-sleep 5
+#update apt-cache &> /dev/null
+apt update -y
+apt upgrade -y
+
+#install packages
+apt install -y qemu-guest-agent
+
+#reset hostname
+truncate -s0 /etc/hostname
+hostnamectl set-hostname BKM-GNS3
+
+#cleanup apt
+apt clean
+
+#disk biger-maker (proxmox virtial disk)
+pvresize /dev/vda3
+lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+
+#disk biger-maker (hard-disk)
+#pvresize /dev/sda3
+#lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
+#resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
+
+dhclient -r
+sleep 2
+systemctl restart networking
+sleep 2
+
 clear
 ######################################################
 #             The Tools has been installed           #
-#                Server shutdown 5 sec              #
+#                Server shutdown 5 sec               #
 #                                                    #
 ######################################################
-sleep 5 ; shutdown
+sleep 5 ; reboot
