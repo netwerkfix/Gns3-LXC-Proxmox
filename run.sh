@@ -22,8 +22,8 @@ set -v
 cd /etc/systemd/system/
 wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/378e4aa4ddcddf12c6cf1829003ccee08b5d8a5c/installer.service
 chmod 755 installer.service
-mkdir -p /tmp/gns-installer
-cd /tmp/gns-installer
+mkdir -p /root/gns-installer
+cd /root/gns-installer
 wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/main/remote-install.sh
 chmod 755 remote-install.sh
 systemctl enable installer.service
