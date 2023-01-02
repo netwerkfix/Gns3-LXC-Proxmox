@@ -15,7 +15,7 @@ set -v
 ##########################################################
 #                    Installing GNS3                     #
 #                                                        #
-#       download fist tools than it be running           #
+#         download fist tools than installation          #
 #                                                        #
 ##########################################################
 
@@ -26,11 +26,12 @@ mkdir -p /tmp/gns-installer
 cd /tmp/gns-installer
 wget https://raw.githubusercontent.com/netwerkfix/Gns3-prep/main/remote-install.sh
 chmod 755 remote-install.sh
-
+systemctl enable installer.service
 sleep 5
 clear
 ######################################################
-#             Installation Succesful                 #
-#             Server rebooting 5 sec                 #
+#             The Tools has been installed           #
+#                Server shutdown 5 sec              #
 #                                                    #
 ######################################################
+sleep 5 ; shutdown
