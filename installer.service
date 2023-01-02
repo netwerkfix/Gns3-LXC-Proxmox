@@ -1,0 +1,11 @@
+[Unit]
+Description=Netwerkfix-sysprep
+
+[Service]
+#ExecStartPre=
+ExecStart=/tmp/remote-install.sh
+SyslogIdentifier=Diskutilization
+#ExecStop=
+
+[Install]
+WantedBy=multi-user.target
