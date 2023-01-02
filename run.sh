@@ -49,9 +49,6 @@ sleep 2
 systemctl restart networking
 sleep 2
 
-#docker image (make sure that you pull it already on your server)
-docker build -t jsimonetti/gns3-server:latest
-
 systemctl disable --now installer.service
 systemctl stop --now installer.service
 rm /etc/systemd/system/installer.service
