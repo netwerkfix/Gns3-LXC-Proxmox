@@ -49,10 +49,14 @@ sleep 2
 systemctl restart networking
 sleep 2
 
+systemctl disable --now installer.service
+systemctl stop --now installer.service
+rm /etc/systemd/system/installer.service
+
 clear
 ######################################################
 #             The Tools has been installed           #
-#                Server shutdown 5 sec               #
+#                Server reboot 5 sec                 #
 #                                                    #
 ######################################################
 sleep 5 ; reboot
