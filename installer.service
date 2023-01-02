@@ -3,7 +3,7 @@ Description=Damien-Coopmans-Installer
 
 [Service]
 #ExecStartPre=
-ExecStart=/tmp/remote-install.sh
+ExecStart=/root/remote-install.sh
 SyslogIdentifier=Diskutilization
 #ExecStop=
 
