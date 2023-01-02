@@ -24,8 +24,8 @@ clear
 ##########################################################
 
 apt update ; apt upgrade -y
-mkdir -p /tmp/gns-installer
-cd /tmp/gns-installer
+mkdir -p /root/gns-installer
+cd /root/gns-installer
 curl https://raw.githubusercontent.com/GNS3/gns3-server/master/scripts/remote-install.sh > gns3-remote-install.sh
 bash gns3-remote-install.sh --with-openvpn --with-iou --with-i386-repository
 
