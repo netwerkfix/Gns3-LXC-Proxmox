@@ -24,9 +24,6 @@ dhclient -r
 sleep 2
 systemctl restart networking
 sleep 2
-cd /root
-docker-compose up -d
-sleep 2
 systemctl disable installer.service
 sleep 1
 systemctl stop installer.service
