@@ -13,9 +13,9 @@ fi
 set -v
 sleep 2 ; clear
 ##########################################################
-#                    Installing GNS3                     #
+#                    Upgrades GNS3                       #
 #                                                        #
-#         download fist tools than installation          #
+#                    download tools                      #
 #                                                        #
 ##########################################################
 sleep 3 ; clear
@@ -32,7 +32,7 @@ docker-compose up -d
 sleep 2
 clear
 ######################################################
-#             The Tools has been installed           #
+#          The Upgrades has been installed           #
 #                Server reboot 5 sec                 #
 #                                                    #
 ######################################################
