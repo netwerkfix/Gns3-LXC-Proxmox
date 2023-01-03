@@ -3,7 +3,6 @@
     container_name: gns3
     hostname: gns3
     image: jsimonetti/gns3-server:latest
-    network_mode: host
     ports:
       - 3080:3080
     environment:
