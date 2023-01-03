@@ -19,16 +19,14 @@ sleep 2 ; clear
 #                                                        #
 ##########################################################
 sleep 3 ; clear
-
-#reset hostname
-truncate -s0 /etc/hostname
-hostnamectl set-hostname BKM-GNS3
-
+sleep 3
 dhclient -r
 sleep 2
 systemctl restart networking
 sleep 2
-
+cd /root
+docker-compose up -d
+sleep 2
 systemctl disable installer.service
 sleep 1
 systemctl stop installer.service
