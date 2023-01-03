@@ -24,33 +24,17 @@ sleep 3 ; clear
 apt update -y
 apt upgrade -y
 
-#install packages
-apt install -y qemu-guest-agent
-
 #reset hostname
 truncate -s0 /etc/hostname
 hostnamectl set-hostname BKM-GNS3
-
-#cleanup apt
-apt clean
-
-#disk biger-maker (proxmox virtial disk)
-pvresize /dev/vda3
-lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
-resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
-
-#disk biger-maker (hard-disk)
-#pvresize /dev/sda3
-#lvextend -l +100%FREE /dev/mapper/ubuntu--vg-ubuntu--lv
-#resize2fs /dev/mapper/ubuntu--vg-ubuntu--lv
 
 dhclient -r
 sleep 2
 systemctl restart networking
 sleep 2
 
-systemctl disable --now installer.service
-systemctl stop --now installer.service
+systemctl disable installer.service
+systemctl stop installer.service
 rm /etc/systemd/system/installer.service
 
 clear
