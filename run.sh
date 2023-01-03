@@ -19,16 +19,16 @@ sleep 2 ; clear
 #                                                        #
 ##########################################################
 sleep 3 ; clear
+
 sleep 3
+apt update ; apt upgrade -y
+sleep 2
 dhclient -r
 sleep 2
 systemctl restart networking
 sleep 2
-systemctl disable installer.service
-sleep 1
-systemctl stop installer.service
-sleep 1
-rm /etc/systemd/system/installer.service
+docker-compose up -d
+
 sleep 2
 clear
 ######################################################
