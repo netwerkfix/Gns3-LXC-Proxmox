@@ -1,0 +1,13 @@
+ gns3:
+    privileged: true
+    container_name: gns3
+    hostname: gns3
+    image: jsimonetti/gns3-server:latest
+    network_mode: host
+    ports:
+      - 3080:3080
+    environment:
+      - BRIDGE_ADDRESS="172.17.0.1/16"
+    volumes:
+      - ./gns3:/data
+    restart: unless-stopped
