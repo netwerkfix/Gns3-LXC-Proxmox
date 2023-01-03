@@ -20,10 +20,6 @@ sleep 2 ; clear
 ##########################################################
 sleep 3 ; clear
 
-#update apt-cache &> /dev/null
-apt update -y
-apt upgrade -y
-
 #reset hostname
 truncate -s0 /etc/hostname
 hostnamectl set-hostname BKM-GNS3
@@ -34,9 +30,11 @@ systemctl restart networking
 sleep 2
 
 systemctl disable installer.service
+sleep 1
 systemctl stop installer.service
+sleep 1
 rm /etc/systemd/system/installer.service
-
+sleep 2
 clear
 ######################################################
 #             The Tools has been installed           #
