@@ -26,12 +26,6 @@ sleep 2
 dhclient -r
 sleep 2
 systemctl restart networking
-sleep 2
-docker-compose down
-sleep 2
-docker-compose kill
-sleep 4
-docker-compose up -d
 
 sleep 2
 clear
